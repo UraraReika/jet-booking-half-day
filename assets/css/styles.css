@@ -1,0 +1,31 @@
+div.date-picker-wrapper .month-wrapper table .day.booked-first-day,
+div.date-picker-wrapper .month-wrapper table .day.booked-last-day {
+	opacity: 1;
+	position: relative;
+	z-index: 1;
+}
+
+div.date-picker-wrapper .month-wrapper table .day.booked-range-day {
+	background: #e25858 !important;
+	opacity: 1;
+}
+
+div.date-picker-wrapper .month-wrapper table .day.booked-first-day:after,
+div.date-picker-wrapper .month-wrapper table .day.booked-last-day:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #e25858 !important;
+	z-index: -1;
+}
+
+div.date-picker-wrapper .month-wrapper table .day.booked-first-day:after {
+	clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+div.date-picker-wrapper .month-wrapper table .day.booked-last-day:after {
+	clip-path: polygon(0 0, 100% 0, 0 100%);
+}
