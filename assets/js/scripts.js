@@ -1,5 +1,5 @@
 jQuery( document ).ready( function() {
-	const selectedRanges = window.JetABAFData.booked_date_ranges;
+	const selectedRanges = window.JetABAFData.booked_date_ranges || [];
 
 	window.JetPlugins.hooks.addFilter( "jet-booking.date-range-picker.date-show-params", "jetBooking", ( params, date ) => {
 		const currentDate = moment( date );
@@ -8,6 +8,8 @@ jQuery( document ).ready( function() {
 		selectedRanges.forEach( range => {
 			const start = moment( range.start );
 			const end = moment( range.end );
+
+			if ( ! window.JetABAFData.booked_dates.includes( range.start ) && ! window.JetABAFData.booked_dates.includes( range.end ) ) return;
 
 			if ( currentDate.isSame( start, 'day' ) ) {
 				classes = 'booked-first-day';
