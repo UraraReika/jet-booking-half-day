@@ -1,5 +1,5 @@
 jQuery( document ).ready( function() {
-	const selectedRanges = window.JetABAFData.booked_date_ranges || [];
+	const selectedRanges = window.JetABAFData?.booked_date_ranges || [];
 
 	window.JetPlugins.hooks.addFilter( "jet-booking.date-range-picker.date-show-params", "jetBooking", ( params, date ) => {
 		const currentDate = moment( date );
